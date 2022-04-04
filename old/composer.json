@@ -1,0 +1,7 @@
+{
+    "require": {
+        "laravel/cashier": "^13.8",
+        "socialiteproviders/twitter": "^4.1",
+        "laravel/jetstream": "^2.6"
+    }
+}
