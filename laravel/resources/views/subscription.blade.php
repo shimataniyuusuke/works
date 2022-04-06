@@ -62,6 +62,17 @@
                     </select>
 
                     <h2>サブスクリプション</h2>
+                    <!-- コピー対象要素とコピーボタン -->
+                    <input id="copyTarget" type="text" value="" placeholder="なんか入力せい">
+                    <button onclick="copyToClipboard()">Copy text</button>
+
+
+                    <select name="" id="">
+                        @foreach(Config::get('app.testcards') as $k => $v)
+                            <option id="copyTarget" value="{{$v}}">{{$k}}</option>
+                        @endforeach
+                    </select>
+                        <button onclick="copyToClipboard()">Copy text</button>
                     <form id="setup-form" action="{{ route('subscribe.post') }}" method="post">
                         @csrf
                         <input id="card-holder-name" type="text" placeholder="カード名義人" name="card-holder-name">
@@ -139,6 +150,25 @@
 
                 // Submit the form
                 form.submit();
+            }
+
+
+            function copyToClipboard() {
+                // コピー対象をJavaScript上で変数として定義する
+                var copyTarget = document.getElementById("copyTarget");
+
+                // コピー対象のテキストを選択する
+                copyTarget.select();
+
+                // 選択しているテキストをクリップボードにコピーする
+                document.execCommand("Copy");
+
+                // コピーをお知らせする
+                alert("コピーできました！ : " + copyTarget.value);
+            }
+
+            function autoInputTestCardNum() {
+
             }
 
         </script>
