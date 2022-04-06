@@ -92,6 +92,11 @@ Route::get('scraping_page', function () {
     return view('scraping_page');
 });
 
+// LINEの認証画面に遷移
+Route::get('auth/line', 'App\Http\Controllers\Auth\LineOAuthController@redirectToProvider')->name('line.login');
+// 認証後にリダイレクトされるURL(コールバックURL)
+Route::get('auth/line/callback', 'App\Http\Controllers\Auth\LineOAuthController@handleProviderCallback');
+
 
 /*
  *

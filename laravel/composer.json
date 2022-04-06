@@ -12,6 +12,7 @@
         "laravel/cashier": "^13.8",
         "laravel/framework": "^9.2",
         "laravel/sanctum": "^2.14.1",
+        "laravel/socialite": "^5.5",
         "laravel/tinker": "^2.7",
         "paypayopa/php-sdk": "^2.0"
     },
