@@ -14,6 +14,8 @@
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
         <!-- Styles -->
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+        <link rel="stylesheet" href="https://unpkg.com/flowbite@1.4.1/dist/flowbite.min.css" />
+
         <style>
             #card-element {
                 border-radius: 4px 4px 0 0 ;
@@ -71,5 +73,6 @@
             </main>
         </div>
         @stack('scripts')
+        <script src="https://unpkg.com/flowbite@1.4.1/dist/flowbite.js"></script>
     </body>
 </html>

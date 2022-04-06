@@ -62,17 +62,13 @@
                     </select>
 
                     <h2>サブスクリプション</h2>
-                    <!-- コピー対象要素とコピーボタン -->
-                    <input id="copyTarget" type="text" value="" placeholder="なんか入力せい">
-                    <button onclick="copyToClipboard()">Copy text</button>
-
 
                     <select name="" id="">
                         @foreach(Config::get('app.testcards') as $k => $v)
                             <option id="copyTarget" value="{{$v}}">{{$k}}</option>
                         @endforeach
                     </select>
-                        <button onclick="copyToClipboard()">Copy text</button>
+                    <button type="button" onclick="copyToClipboard()" class="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">カード番号をオートペースト</button>
                     <form id="setup-form" action="{{ route('subscribe.post') }}" method="post">
                         @csrf
                         <input id="card-holder-name" type="text" placeholder="カード名義人" name="card-holder-name">
