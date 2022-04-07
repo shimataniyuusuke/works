@@ -19,7 +19,6 @@ class EventServiceProvider extends ServiceProvider
             SendEmailVerificationNotification::class,
         ],
 
-        // 下記3行を追加
         \SocialiteProviders\Manager\SocialiteWasCalled::class => [
             \SocialiteProviders\Line\LineExtendSocialite::class.'@handle',
         ],

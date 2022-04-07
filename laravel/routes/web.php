@@ -91,6 +91,9 @@ Route::get('scraping_page', function () {
     return view('scraping_page');
 });
 
+
+
+
 /*
  *
  * LINE login
