@@ -501,8 +501,8 @@
                         <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
                             stripe決済のAPIを使用した決済システムのデモ<br>
                             月額課金（トライアル期間設定あり）と単発購入の2種類を用意<br>
-                            管理画面で売上の管理や分析画面も用意（予定）
-                            この先paypay,Linepay,他決済も導入(予定）
+                            管理画面で売上の管理や分析画面も用意（予定） この先paypay,Linepay,他決済も導入(予定）<br>
+                            ※要ログイン shimatani@shift-jp.net / shima0506
                         </div>
                     </div>
                 </div>
@@ -559,6 +559,7 @@
                     <div class="ml-12">
                         <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
                             Laravel ScoutとElasticSearchを使用した全文検索システムのデモ
+                            今後物件検索システムなど構築する際に使用など想定
                         </div>
                     </div>
                 </div>
@@ -570,14 +571,13 @@
                                 d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                         </svg>
                         <div class="ml-4 text-lg leading-7 font-semibold text-gray-900 dark:text-white">
-                            <a href="scraping_page" class="underline text-gray-900 dark:text-white">スクレイピング</a>
+                            <a href="scraping_page" class="underline text-gray-900 dark:text-white">他</a>
                         </div>
                     </div>
 
                     <div class="ml-12">
                         <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
-                            指定のページをスクレイピングして例えば表示金額より100円下げて自分の出品商品を掲載するなど<br>
-                            ページを取得してその中身の取得・整形・利用などする
+                            あれば追加していきます
                         </div>
                     </div>
                 </div>

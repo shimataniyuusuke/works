@@ -14,7 +14,9 @@
         "laravel/sanctum": "^2.14.1",
         "laravel/socialite": "^5.5",
         "laravel/tinker": "^2.7",
-        "paypayopa/php-sdk": "^2.0"
+        "laravel/ui": "^3.4",
+        "paypayopa/php-sdk": "^2.0",
+        "socialiteproviders/line": "^4.1"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.6",

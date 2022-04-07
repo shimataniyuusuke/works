@@ -41,8 +41,10 @@
             </div>
 
                 <div class="block mt-4">
-                    <a href="{{ route('line.login') }}">
+                    <a href="{{ route('login.line.redirect') }}">
                         <img src="{{asset('images/images/DeskTop/1x/44dp/btn_login_base.png')}}" alt="">
+                        本Webサービスでは、ログイン時の認証画面にて許可を頂いた場合のみ、あなたのLINEアカウントに登録されているメールアドレスを取得します。<br />
+                        取得したメールアドレスは、以下の目的以外では使用いたしません。また、法令に定められた場合を除き、第三者への提供はいたしません。
                     </a>
                 </div>
 

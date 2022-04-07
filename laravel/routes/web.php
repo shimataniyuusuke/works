@@ -2,7 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\Auth\LoginController;
 use Laravel\Cashier\Cashier;
 
 
@@ -87,16 +87,20 @@ Route::post('/purchase', function (Request $request) {
  *
  * */
 
-
 Route::get('scraping_page', function () {
     return view('scraping_page');
 });
 
-// LINEの認証画面に遷移
-Route::get('auth/line', 'App\Http\Controllers\Auth\LineOAuthController@redirectToProvider')->name('line.login');
-// 認証後にリダイレクトされるURL(コールバックURL)
-Route::get('auth/line/callback', 'App\Http\Controllers\Auth\LineOAuthController@handleProviderCallback');
-
+/*
+ *
+ * LINE login
+ *
+ * */
+Auth::routes();
+Route::prefix('login')->name('login.')->group(function() {
+    Route::get('/line/redirect', [LoginController::class, 'redirectToProvider'])->name('line.redirect');
+    Route::get('/line/callback', [LoginController::class, 'handleProviderCallback'])->name('line.callback');
+});
 
 /*
  *
