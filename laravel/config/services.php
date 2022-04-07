@@ -31,10 +31,16 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
+    //LINE developerで発行
     'line' => [
         'client_id'     => env('LINE_CLIENT_ID'),
         'client_secret' => env('LINE_CLIENT_SECRET'),
         'redirect'      => env('LINE_REDIRECT_URI')
+    ],
+    //APPLE developerで発行
+    "apple" => [
+        "client_id" => "<your_client_id>",
+        "client_secret" => "<your_client_secret>",
     ],
 
 ];

@@ -16,6 +16,7 @@
         "laravel/tinker": "^2.7",
         "laravel/ui": "^3.4",
         "paypayopa/php-sdk": "^2.0",
+        "socialiteproviders/apple": "^5.0",
         "socialiteproviders/line": "^4.1"
     },
     "require-dev": {

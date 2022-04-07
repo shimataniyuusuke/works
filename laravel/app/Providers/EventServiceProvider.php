@@ -20,7 +20,8 @@ class EventServiceProvider extends ServiceProvider
         ],
 
         \SocialiteProviders\Manager\SocialiteWasCalled::class => [
-            \SocialiteProviders\Line\LineExtendSocialite::class.'@handle',
+            \SocialiteProviders\Line\LineExtendSocialite::class.'@handle', //Lineログイン
+            'SocialiteProviders\\Apple\\AppleExtendSocialite@handle', //AppleIDログイン
         ],
     ];
 

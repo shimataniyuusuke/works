@@ -97,13 +97,18 @@ Route::get('scraping_page', function () {
 /*
  *
  * LINE login
- *
+ *https://qiita.com/yamato127/items/e99877b4471c446d6cb5
  * */
 Auth::routes();
 Route::prefix('login')->name('login.')->group(function() {
     Route::get('/line/redirect', [LoginController::class, 'redirectToProvider'])->name('line.redirect');
     Route::get('/line/callback', [LoginController::class, 'handleProviderCallback'])->name('line.callback');
 });
+
+//APPLE login
+//https://devpeel.com/implement-apple-sign-in-with-laravel/
+Route::post('apple/login','API\\Auth\\AppleLoginController@login');
+
 
 /*
  *
