@@ -33,7 +33,7 @@
 
                 <!-- News Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('subscription')" :active="request()->routeIs('Subscription')">
+                    <x-nav-link>
                         {{ __('ニュース') }}
                     </x-nav-link>
                 </div>
@@ -67,7 +67,7 @@
                             <x-dropdown-link :href="route('logout')"
                                              onclick="event.preventDefault();
                                                 this.closest('form').submit();">
-                                {{ __('Log Out') }}
+                                {{ __('ログアウト') }}
                             </x-dropdown-link>
                         </form>
                     </x-slot>
@@ -108,12 +108,24 @@
             <div class="mt-3 space-y-1">
                 <!-- Authentication -->
                 <form method="POST" action="{{ route('logout') }}">
+                <form method="POST" action="{{ route('logout') }}">
                     @csrf
-
                     <x-responsive-nav-link :href="route('logout')"
                                            onclick="event.preventDefault();
                                         this.closest('form').submit();">
-                        {{ __('Log Out') }}
+                        {{ __('ログアウト') }}
+                    </x-responsive-nav-link>
+                </form>
+            </div>
+
+            <div class="mt-3 space-y-1">
+                <!-- Authentication -->
+                <form method="POST" action="{{ route('logout') }}">
+                    @csrf
+                    <x-responsive-nav-link :href="route('logout')"
+                                           onclick="event.preventDefault();
+                                        this.closest('form').submit();">
+                        {{ __('ログアウト') }}
                     </x-responsive-nav-link>
                 </form>
             </div>

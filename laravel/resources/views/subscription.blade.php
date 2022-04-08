@@ -56,13 +56,13 @@
                 <div class="p-6 bg-white border-b border-gray-200">
                     <p>コースの設定</p>
                     <select name="" id="">
-                        <option value="100">100</option>
-                        <option value="200">200</option>
-                        <option value="300">300</option>
+                        @foreach(Config::get('app.course') as $k => $v)
+                            <option value="{{$v}}">{{$k}}　価格：{{$v}}円</option>
+                        @endforeach
                     </select>
 
                     <input id="copyTarget" type="text" value="" placeholder="なんかうってね">
-                    <button                             class="text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" onclick="copyToClipboard()">Copy text</button>
+                    <button class="text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" onclick="copyToClipboard()">Copy text</button>
 
                     <h2>サブスクリプション</h2>
 
@@ -76,7 +76,7 @@
 
                     <button type="button" onclick="autoInputTestCardNum()"
                             class="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">
-                        カード番号をオートペースト
+                        テストカード番号をオートペースト
                     </button>
                     <form id="setup-form" action="{{ route('subscribe.post') }}" method="post">
                         @csrf

@@ -1,9 +1,8 @@
 <?php
 
+use App\Http\Controllers\Auth\LoginController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Auth\LoginController;
-use Laravel\Cashier\Cashier;
 
 
 /*
@@ -40,8 +39,11 @@ Route::get('/dashboard', function () {
  *
  * */
 
-Route::get('/news', 'App\Http\Controllers\ApiController@index');
+//Route::get('/news', 'App\Http\Controllers\ApiController@index');
 
+Route::prefix('/news')->group(function() {
+    Route::get('/', 'App\Http\Controllers\ApiController@index');
+});
 
 /*
  *
@@ -49,22 +51,25 @@ Route::get('/news', 'App\Http\Controllers\ApiController@index');
  *
  * */
 
-//サブスク
 
-Route::get('/subscription', function () {
-    return view('subscription', [
-        'intent' => auth()->user()->createSetupIntent()
-    ]);
-})->middleware(['auth'])->name('subscription');
+//サブスク
+Route::prefix('/subscription')->group(function() {
+    Route::get('/', function () {
+        return view('subscription', [
+            'intent' => auth()->user()->createSetupIntent()
+        ]);
+    })->middleware(['auth'])->name('subscription');
+});
 
 
 Route::post('/user/subscribe', function (Request $request) {
-    $request->user()->newSubscription('default', 'price_1KbJayK7lmvOdVn5dt2h3MNf')
+    $request->user()->newSubscription('default', 'price_1KmA8MK7lmvOdVn5cB8F8sZb')
         ->trialDays(14)//2週間のトライアル設定
         ->create($request->paymentMethodId);
 
     return redirect('/dashboard');
 })->middleware(['auth'])->name('subscribe.post');
+
 
 
 //単発購入

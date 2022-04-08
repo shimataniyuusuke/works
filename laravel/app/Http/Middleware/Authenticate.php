@@ -28,11 +28,6 @@ class Authenticate extends Middleware
                 //課金状況の取得
                 $user = User::make()
                     ->get();
-
-                echo '<pre>';
-                print_r($user);
-                echo '</pre>';
-                exit;
             }
         }
 

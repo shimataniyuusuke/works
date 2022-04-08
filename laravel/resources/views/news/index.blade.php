@@ -86,6 +86,10 @@
     body {
         margin: 20px;
     }
+    .mosaic{
+        -ms-filter: blur(10px);
+        filter: blur(10px);
+    }
 </style>
 
 <x-app-layout>
@@ -93,10 +97,13 @@
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             {{ __('NEWS API デモ') }}
         </h2>
-        <span>この記事一覧はNEWS_APIから取得したものを生成・表示しています</span>
+        <span>この記事一覧はNEWS_APIから取得したものを生成・表示しています</span><br>
+        @if ($check_subscribe === 0)
+        <span>記事一覧は有料サービスです。登録は<a href="subscription" style="color:red;">こちら</a></span>
+        @endif
     </x-slot>
 
-    <ul class="news-list">
+    <ul class="news-list @if ($check_subscribe === 0)mosaic @endif">
         @foreach($news as $data)
             <li class="item">
                 <a href="{{$data['url']}}">

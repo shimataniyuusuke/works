@@ -10,9 +10,21 @@
             <h3>お知らせ</h3>
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
-                    @if(auth()->user()->onTrial())
-                        <p>{{ auth()->user()->trialEndsAt()->format('Y-m-d')}}までトライアル期間中です。</p>
-                    @endif
+                    <div class="p-4 mb-4 text-sm text-blue-700 bg-blue-100 rounded-lg dark:bg-blue-200 dark:text-blue-800" role="alert">
+                        <span class="font-medium">お知らせ</span> まもなくニュース読み放題のサブスクリプションが更新されます
+                    </div>
+                    <div class="p-4 mb-4 text-sm text-red-700 bg-red-100 rounded-lg dark:bg-red-200 dark:text-red-800" role="alert">
+                        <span class="font-medium">カード情報をご確認ください</span> ご登録されているカードの有効期限が切れています。カード情報の更新をしてください
+                    </div>
+                    <div class="p-4 mb-4 text-sm text-green-700 bg-green-100 rounded-lg dark:bg-green-200 dark:text-green-800" role="alert">
+                        <span class="font-medium">新着情報</span>　新春キャンペーン開始！詳しくは <a href="" style="text-decoration: underline">こちら</a>！
+                    </div>
+                    <div class="p-4 mb-4 text-sm text-yellow-700 bg-yellow-100 rounded-lg dark:bg-yellow-200 dark:text-yellow-800" role="alert">
+                        <span class="font-medium">カード更新のお知らせ</span> ご登録されているカードの有効期限がまもなく切れます。カード情報の更新をしてください
+                    </div>
+                    <div class="p-4 mb-4 text-sm text-gray-700 bg-gray-100 rounded-lg dark:bg-gray-700 dark:text-gray-300" role="alert">
+                        <span class="font-medium">お知らせテスト</span> テストテストテストテストテストテストテストテストテストテストテストテストテストテスト
+                    </div>
                 </div>
             </div>
         </div>

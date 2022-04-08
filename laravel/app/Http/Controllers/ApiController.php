@@ -7,6 +7,9 @@ use GuzzleHttp\Client;
 use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7;
 use Illuminate\Support\Facades\Auth;
+use Laravel\Cashier\Cashier;
+use Illuminate\Support\Facades\DB;
+
 
 class ApiController extends Controller
 {
@@ -34,13 +37,25 @@ class ApiController extends Controller
 
     public function index()
     {
+        //ログインユーザーが課金しているか＆課金期間であるかどうか
+        //あとで個々熟読して各サブスクメソッド理解しておく
+        //https://readouble.com/laravel/8.x/ja/billing.html
+
+
+        $user = auth()->user();
+        $check_subscribe =($user->subscribed('default')) ? 1 : 0;
+
+
+        if($check_subscribe == 0){
+            echo "<script>alert('このサービスは有料会員様のみご閲覧可能となります。')</script>";
+        }
 
         try {
             $url = config('newsapi.news_api_url')."top-headlines?country=jp&category=business&apiKey=".config(
                     'newsapi.news_api_key'
                 );
             $method = "GET";
-            $count = 15;
+            $count = 20;
 
             $client = new Client();
             $response = $client->request($method, $url);
@@ -76,6 +91,6 @@ class ApiController extends Controller
         }
 
 
-        return view('news/index', compact('news'));
+        return view('news/index', compact('news','check_subscribe'));
     }
 }
