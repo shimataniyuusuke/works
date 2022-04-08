@@ -483,6 +483,7 @@
                     <div class="ml-12">
                         <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
                             NewsAPIでニュース記事の自動生成デモ
+                            記事を読むには月額課金登録していないとみれないようにしてます。
                         </div>
                     </div>
                 </div>

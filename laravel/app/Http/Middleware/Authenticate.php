@@ -18,7 +18,25 @@ class Authenticate extends Middleware
     protected function redirectTo($request)
     {
 
-        if (strstr($_SERVER["REQUEST_URI"], "/laravel/public/subscription")) {
+        //ニュースは月額課金の仕組みにするのでまずログインしているかどうか
+        if(strstr(url()->full(),"news")){
+            if (!Auth::check()) {
+                return route('login');
+            }
+            //ログインされていても課金状況がfalseなら課金アナウンスページへ飛ばす
+            elseif(Auth::check()){
+                //課金状況の取得
+                $user = User::make()
+                    ->get();
+
+                echo '<pre>';
+                print_r($user);
+                echo '</pre>';
+                exit;
+            }
+        }
+
+        if (strstr(url()->full(), "/laravel/public/subscription")) {
             //ログインされてなければまずログイン画面へ遷移する
             if (!Auth::check()) {
                 return route('login');

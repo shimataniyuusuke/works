@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Auth;
 
 class ApiController extends Controller
 {
+
     //記事カテゴリ
     //記事タイトルの文脈に応じてカテゴリ分けしようと思ったけどやめた
     private $category = [
@@ -24,8 +25,16 @@ class ApiController extends Controller
         9 => "ガジェット",
     ];
 
+    public function __construct()
+    {
+        //ログインしてなければログイン画面へ飛ばす
+        $this->middleware('auth');
+
+    }
+
     public function index()
     {
+
         try {
             $url = config('newsapi.news_api_url')."top-headlines?country=jp&category=business&apiKey=".config(
                     'newsapi.news_api_key'
