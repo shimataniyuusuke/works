@@ -32,6 +32,14 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
+/*
+ * ボタン等サンプルモックページ
+ * */
+Route::get('/mock', function () {
+    return view('mock');
+});
+
+
 
 /*
  *
