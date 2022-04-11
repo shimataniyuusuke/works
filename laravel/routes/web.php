@@ -37,7 +37,7 @@ Route::get('/dashboard', function () {
  * */
 Route::get('/mock', function () {
     return view('mock');
-});
+})->middleware(['auth'])->name('mock');
 
 
 
@@ -50,7 +50,7 @@ Route::get('/mock', function () {
 //Route::get('/news', 'App\Http\Controllers\ApiController@index');
 
 Route::prefix('/news')->group(function () {
-    Route::get('/', 'App\Http\Controllers\ApiController@index');
+    Route::get('/', 'App\Http\Controllers\ApiController@index')->middleware(['auth'])->name('news');
 });
 
 /*
