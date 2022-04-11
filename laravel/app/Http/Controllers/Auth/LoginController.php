@@ -44,16 +44,17 @@ class LoginController extends Controller
     /**
      * 外部サービスの認証ページへリダイレクトする。
      */
-    public function redirectToProvider() {
+    public function redirectToLineProvider()
+    {
         return Socialite::driver('line')->redirect();
     }
 
     /**
      * 外部サービスからユーザー情報を取得し、ログインする。
      */
-    public function handleProviderCallback(Request $request) {
+    public function handleProviderLineCallback(Request $request)
+    {
         $line_user = Socialite::driver('line')->user();
-
         $user = User::firstOrCreate(
             ['line_user_id' => $line_user->id],
             ['name' => $line_user->name]
@@ -62,4 +63,40 @@ class LoginController extends Controller
         $this->guard()->login($user, true);
         return $this->sendLoginResponse($request);
     }
+
+
+    /**
+     * 外部サービスの認証ページへリダイレクトする。
+     */
+    public function redirectToFacebookProvider()
+    {
+        return Socialite::driver('facebook')->redirect();
+    }
+
+    /**
+     * 外部サービスからユーザー情報を取得し、ログインする。
+     */
+    public function handleProviderFacebookCallback(Request $request)
+    {
+        $user = Socialite::driver('facebook')->user();
+
+        // すでにFacebook登録済みじゃなかったらユーザーを登録する
+        $userModel = User::where('facebook_id', $user->id)->first();
+        if (!$userModel) {
+            $userModel = new User([
+                                      'name'        => $user->name,
+                                      'email'       => $user->email,
+                                      'facebook_id' => $user->id
+                                  ]);
+
+            $userModel->save();
+        }
+        // ログインする
+        Auth::login($userModel);
+
+        $this->guard()->login($userModel, true);
+        return $this->sendLoginResponse($request);
+    }
+
+
 }

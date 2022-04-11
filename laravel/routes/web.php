@@ -41,7 +41,7 @@ Route::get('/dashboard', function () {
 
 //Route::get('/news', 'App\Http\Controllers\ApiController@index');
 
-Route::prefix('/news')->group(function() {
+Route::prefix('/news')->group(function () {
     Route::get('/', 'App\Http\Controllers\ApiController@index');
 });
 
@@ -53,7 +53,7 @@ Route::prefix('/news')->group(function() {
 
 
 //サブスク
-Route::prefix('/subscription')->group(function() {
+Route::prefix('/subscription')->group(function () {
     Route::get('/', function () {
         return view('subscription', [
             'intent' => auth()->user()->createSetupIntent()
@@ -71,7 +71,6 @@ Route::post('/user/subscribe', function (Request $request) {
 })->middleware(['auth'])->name('subscribe.post');
 
 
-
 //単発購入
 Route::get('/purchase', function () {
     return view('purchase');
@@ -79,11 +78,11 @@ Route::get('/purchase', function () {
 
 Route::post('/purchase', function (Request $request) {
     $request->user()->charge(
-        100, $request->paymentMethodId
+        100,
+        $request->paymentMethodId
     );
 
     return redirect('/dashboard');
-
 })->middleware(['auth'])->name('purchase.post');
 
 /*
@@ -96,23 +95,38 @@ Route::get('scraping_page', function () {
     return view('scraping_page');
 });
 
+/*
+ *
+ * ヒートマップ
+ * */
+
+
+Route::prefix('/heatmap')->group(function () {
+    Route::get('/', 'App\Http\Controllers\HeatmapController@index');
+});
 
 
 
 /*
  *
- * LINE login
+ * ソーシャルログイン
  *https://qiita.com/yamato127/items/e99877b4471c446d6cb5
  * */
 Auth::routes();
-Route::prefix('login')->name('login.')->group(function() {
-    Route::get('/line/redirect', [LoginController::class, 'redirectToProvider'])->name('line.redirect');
-    Route::get('/line/callback', [LoginController::class, 'handleProviderCallback'])->name('line.callback');
+Route::prefix('login')->name('login.')->group(function () {
+    //FaceBook login
+    Route::get('/facebook/redirect', [LoginController::class, 'redirectToFacebookProvider'])->name('facebook.redirect');
+    Route::get('/facebook/callback', [LoginController::class, 'handleProviderFacebookCallback'])->name('facebook.callback');
+
+    //LINE login
+    Route::get('/line/redirect', [LoginController::class, 'redirectToLineProvider'])->name('line.redirect');
+    Route::get('/line/callback', [LoginController::class, 'handleProviderLineCallback'])->name('line.callback');
 });
+
 
 //APPLE login
 //https://devpeel.com/implement-apple-sign-in-with-laravel/
-Route::post('apple/login','API\\Auth\\AppleLoginController@login');
+Route::post('apple/login', 'API\\Auth\\AppleLoginController@login');
 
 
 /*

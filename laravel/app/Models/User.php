@@ -26,6 +26,7 @@ class User extends Authenticatable
         'email',
         'password',
         'line_user_id',
+        'facebook_id',
     ];
 
     /**

@@ -1,0 +1,11 @@
+<html>
+<head>
+    <title>heatmapの構想</title>
+</head>
+<body>
+<h1>heatmap構想</h1>
+<span>対象のLPを選択</span>
+<span>そのLPの全体をどうにかして描画</span>
+<span>その描画したものにheatmap.jsで色付け</span>
+</body>
+</html>

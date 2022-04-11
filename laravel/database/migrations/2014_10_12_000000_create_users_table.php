@@ -20,6 +20,7 @@ return new class extends Migration {
             $table->string('password')->nullable();
             $table->string('provider')->nullable();
             $table->string('line_user_id')->nullable();
+            $table->string('facebook_id')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
