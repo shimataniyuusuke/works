@@ -29,7 +29,7 @@ class AuthDashboardController extends Controller
 
         if ($announce_date >= date("Y-m-d")) {
             $announce_trial_end = "無料期間が".$trial_end."に終了します。自動更新されますので解約される方は手続きをしてください";
-            $args = array_push($args, ["announce_trial_end => $announce_trial_end"]);
+            array_push($args, ["announce_trial_end => $announce_trial_end"]);
         }
 
         //支払いが不完全・延滞の場合アラーと表示で1週間後に契約自体取り消す
@@ -38,7 +38,7 @@ class AuthDashboardController extends Controller
             if (!empty($payment_alert_date)) {
                 $payment_alert_date = date("Y-m-d");
             }
-            $args = array_push($args, ["payment_alert => $payment_alert"]);
+            array_push($args, ["payment_alert => $payment_alert"]);
         }
 
         $args = [

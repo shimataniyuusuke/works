@@ -110,7 +110,7 @@
         @endif
     </x-slot>
 
-    <ul class="news-list @if($check_subscribe === 0)mosaic @endif">
+    <ul class="news-list @if(!isset($check_subscribe))mosaic @endif">
         @foreach($news as $data)
             <li class="item">
                 <a href="{{$data['url']}}">

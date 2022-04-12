@@ -87,8 +87,8 @@
 
                     <div class="p-4 mb-4 text-sm text-red-700 bg-red-100 rounded-lg dark:bg-red-200 dark:text-red-800" role="alert">
                         <span class="font-medium">※あくまでテストカードの番号を取得してオートペーストするだけのサンプルです。
-                        iframeをカード会社ドメインから引っ張ってきてるので送信する為の番号・有効期限・CVCへの入力は
-                        クロスドメインの制約に引っかかりiframe内の書き換えができないので不可能です。</span>
+                        iframeをカード会社ドメインから引っ張ってきてるので送信する為の番号・有効期限・CVCへのオートペーストは
+                        クロスドメインの制約に引っかかりjsでiframe内の書き換えができないので不可能です。</span>
                     </div>
                     <form id="setup-form" action="{{ route('subscribe.post') }}" method="post">
                         @csrf

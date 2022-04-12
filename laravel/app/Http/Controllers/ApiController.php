@@ -6,8 +6,6 @@ namespace App\Http\Controllers;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7;
-use Illuminate\Support\Facades\Auth;
-use Laravel\Cashier\Cashier;
 use Illuminate\Support\Facades\DB;
 
 
@@ -32,8 +30,8 @@ class ApiController extends Controller
     {
         //ログインしてなければログイン画面へ飛ばす
         $this->middleware('auth');
-
     }
+
 
     public function index()
     {
@@ -44,19 +42,18 @@ class ApiController extends Controller
 
         $user = auth()->user();
         //サブスクリプション一覧からニュースのサブスクに加入しているかチェック
-
         //この処理だと取れない！！！
-//        $check_subscribe =($user->subscribedToProduct(config('app.course.news.product_id'),'default')) ? 1 : 0;
+        //$check_subscribe =($user->subscribedToProduct(config('app.course.news.product_id'),'default')) ? 1 : 0;
 
 
+        //こっちで泥臭く取得
         $check_subscribe = DB::table("subscriptions")
-            ->where('stripe_price','=',"price_1KmA8MK7lmvOdVn5cB8F8sZb")
-            ->where('id','=',2)
+            ->where('stripe_price', '=', "price_1KmA8MK7lmvOdVn5cB8F8sZb")
+            ->where('id', '=', $user->id)
             ->first();
 
 
-
-        if(!isset($check_subscribe)){
+        if (!isset($check_subscribe)) {
             echo "<script>alert('このサービスは有料会員様のみご閲覧可能となります。')</script>";
         }
 
@@ -83,7 +80,6 @@ class ApiController extends Controller
 
 
             for ($id = 0; $id < $count; $id++) {
-
                 array_push($news, [
                     'title'     => $articles['articles'][$id]['title'],
                     'url'       => $articles['articles'][$id]['url'],
@@ -101,6 +97,6 @@ class ApiController extends Controller
         }
 
 
-        return view('news/index', compact('news','check_subscribe'));
+        return view('news/index', compact('news', 'check_subscribe'));
     }
 }
