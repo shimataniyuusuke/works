@@ -84,11 +84,12 @@
                             class="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">
                         テストカード番号をオートペースト
                     </button>
-                    <br>
-                    <small>※あくまでテストカードの番号を取得してオートペーストするだけのサンプルです。
+
+                    <div class="p-4 mb-4 text-sm text-red-700 bg-red-100 rounded-lg dark:bg-red-200 dark:text-red-800" role="alert">
+                        <span class="font-medium">※あくまでテストカードの番号を取得してオートペーストするだけのサンプルです。
                         iframeをカード会社ドメインから引っ張ってきてるので送信する為の番号・有効期限・CVCへの入力は
-                        クロスドメインの制約に引っかかりiframe内の書き換えができないので不可能です。
-                    </small>
+                        クロスドメインの制約に引っかかりiframe内の書き換えができないので不可能です。</span>
+                    </div>
                     <form id="setup-form" action="{{ route('subscribe.post') }}" method="post">
                         @csrf
                         <input id="card-holder-name" type="text" placeholder="カード名義人" name="card-holder-name">

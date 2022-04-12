@@ -18,6 +18,7 @@ class Authenticate extends Middleware
     protected function redirectTo($request)
     {
 
+
         //ニュースは月額課金の仕組みにするのでまずログインしているかどうか
         if(strstr(url()->full(),"news")){
             if (!Auth::check()) {
