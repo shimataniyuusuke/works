@@ -44,10 +44,19 @@ class ApiController extends Controller
 
         $user = auth()->user();
         //サブスクリプション一覧からニュースのサブスクに加入しているかチェック
-        $check_subscribe =($user->subscribedToProduct('default',config('app.course.news.product_id'))) ? 1 : 0;
+
+        //この処理だと取れない！！！
+//        $check_subscribe =($user->subscribedToProduct(config('app.course.news.product_id'),'default')) ? 1 : 0;
 
 
-        if($check_subscribe == 0){
+        $check_subscribe = DB::table("subscriptions")
+            ->where('stripe_price','=',"price_1KmA8MK7lmvOdVn5cB8F8sZb")
+            ->where('id','=',2)
+            ->first();
+
+
+
+        if(!isset($check_subscribe)){
             echo "<script>alert('このサービスは有料会員様のみご閲覧可能となります。')</script>";
         }
 

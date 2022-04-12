@@ -92,7 +92,7 @@
         filter: blur(10px);
     }
 
-    @if($check_subscribe === 0)
+    @if(!isset($check_subscribe))
     .news-list {
         pointer-events: none;
     }
@@ -105,7 +105,7 @@
             {{ __('NEWS API デモ') }}
         </h2>
         <span>この記事一覧はNEWS_APIから取得したものを生成・表示しています</span><br>
-        @if ($check_subscribe === 0)
+        @if (!isset($check_subscribe))
             <span>記事一覧は有料サービスです。登録は<a href="subscription" style="color:red;">こちら</a></span>
         @endif
     </x-slot>

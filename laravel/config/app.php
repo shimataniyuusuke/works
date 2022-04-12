@@ -207,11 +207,12 @@ return [
         "ネットフリックス（1か月：3アカウントプラン）" => 2980,
         "ネットフリックス（1か月：2アカウントプラン）" => 1980,
         "ネットフリックス（1か月：1アカウントプラン）" => 980,
-        "news"                    => [
-            "product_name" => "News読み放題プラン",
-            "price"        => "5000",
-            "product_id"   => "price_1KmA8MK7lmvOdVn5cB8F8sZb",
-        ],
+        "ニュース記事読み放題プラン"           => 500,
+    ],
+
+    'news_subscription_data' => [
+        'stripe_id' => "price_1KmA8MK7lmvOdVn5cB8F8sZb",
+        'price'     => '5000',
     ],
 
 
