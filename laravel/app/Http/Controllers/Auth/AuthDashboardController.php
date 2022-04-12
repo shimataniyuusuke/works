@@ -47,6 +47,7 @@ class AuthDashboardController extends Controller
         ];
 
 
+
         return view('dashboard', compact('args'));
     }
 }

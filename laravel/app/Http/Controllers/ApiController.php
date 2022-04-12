@@ -43,7 +43,8 @@ class ApiController extends Controller
 
 
         $user = auth()->user();
-        $check_subscribe =($user->subscribed('default')) ? 1 : 0;
+        //サブスクリプション一覧からニュースのサブスクに加入しているかチェック
+        $check_subscribe =($user->subscribedToProduct('default',config('app.course.news.product_id'))) ? 1 : 0;
 
 
         if($check_subscribe == 0){
