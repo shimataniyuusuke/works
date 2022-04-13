@@ -38,10 +38,9 @@ class CommonParams
 
         //共通化
         $common = [
-            'user'    => $user,
-            'session' => $_SESSION,
-            'server'  => $_SERVER,
-            'params'  => $_REQUEST,
+            'user'   => $user,
+            'server' => $_SERVER,
+            'params' => $_REQUEST,
         ];
 
 
