@@ -48,10 +48,9 @@ class ApiController extends Controller
 
         //こっちで泥臭く取得
         $check_subscribe = DB::table("subscriptions")
-            ->where('stripe_price', '=', "price_1KmA8MK7lmvOdVn5cB8F8sZb")
-            ->where('id', '=', $user->id)
+            ->where('stripe_price',"price_1KmA8MK7lmvOdVn5cB8F8sZb")
+            ->where('user_id', $user->id)
             ->first();
-
 
         if (!isset($check_subscribe)) {
             echo "<script>alert('このサービスは有料会員様のみご閲覧可能となります。')</script>";
