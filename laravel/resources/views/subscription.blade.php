@@ -55,7 +55,7 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
                     <p>コースの設定</p>
-                    @if( url()->previous() == "https://localhost/laravel/public/news")
+                    @if( url()->previous() == $server. "://localhost/laravel/public/news")
                         <select name="" id="">
                                 <option value="500">News読み放題月額プラン　価格：500円</option>
                         </select>
