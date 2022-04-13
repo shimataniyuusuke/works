@@ -26,7 +26,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->middleware(['auth'])->name('welcome');
 
 //Route::get('/dashboard', function () {
 //    Route::get('/', 'App\Http\Controllers\Auth\AuthDashboardController@index');
