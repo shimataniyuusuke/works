@@ -591,6 +591,45 @@
                         </div>
                     </div>
                 </div>
+                <div class="p-6 border-t border-gray-200 dark:border-gray-700 md:border-l">
+                    <div class="flex items-center">
+                        <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                             stroke-width="2" viewBox="0 0 24 24" class="w-8 h-8 text-gray-500">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                  d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/>
+                        </svg>
+                        <div class="ml-4 text-lg leading-7 font-semibold text-gray-900 dark:text-white">
+                            <a href="heatmap" class="underline text-gray-900 dark:text-white">旅行予約システムデモ</a>
+                        </div>
+                    </div>
+
+                    <div class="ml-12">
+                        <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
+                            旅行予約システムのデモを実装。随時更新予定
+                            管理画面から予約パッケージの公開。一般公開画面から予約可能
+                        </div>
+                    </div>
+                </div>
+                <div class="p-6 border-t border-gray-200 dark:border-gray-700 md:border-l">
+                    <div class="flex items-center">
+                        <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                             stroke-width="2" viewBox="0 0 24 24" class="w-8 h-8 text-gray-500">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="M9.879 16.121A3 3 0 1012.015 11L11 14H9c0 .768.293 1.536.879 2.121z"></path>
+                        </svg>
+                        <div class="ml-4 text-lg leading-7 font-semibold text-gray-900 dark:text-white">
+                            <a href="heatmap" class="underline text-gray-900 dark:text-white">他</a>
+                        </div>
+                    </div>
+
+                    <div class="ml-12">
+                        <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
+                            他なにかあれば鋭意開発予定
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
