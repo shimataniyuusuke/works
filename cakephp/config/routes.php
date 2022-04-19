@@ -51,27 +51,20 @@ return static function (RouteBuilder $routes) {
          * to use (in this case, templates/Pages/home.php)...
          */
         $builder->connect('/', ['controller' => 'Pages', 'action' => 'display', 'home']);
-
-        /*
-         * ...and connect the rest of 'Pages' controller's URLs.
-         */
         $builder->connect('/pages/*', 'Pages::display');
 
-        /*
-         * Connect catchall routes for all controllers.
-         *
-         * The `fallbacks` method is a shortcut for
-         *
-         * ```
-         * $builder->connect('/{controller}', ['action' => 'index']);
-         * $builder->connect('/{controller}/{action}/*', []);
-         * ```
-         *
-         * You can remove these routes once you've connected the
-         * routes you want in your application.
-         */
+        // タグ付けられたアクションのために追加された新しいルート。
+        // 末尾の `*` は、このアクションがパラメーターを渡されることを
+        // CakePHP に伝えます。
+        $builder->scope('/articles', function (RouteBuilder $builder) {
+            $builder->connect('/tagged/*', ['controller' => 'Articles', 'action' => 'tags']);
+        });
+
+
         $builder->fallbacks();
     });
+
+
 
 //    $routes->scope('/articles', function (RouteBuilder $builder) {
 //        $builder->connect('/index', 'Articles::index');
