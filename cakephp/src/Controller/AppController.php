@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 /**
@@ -14,6 +15,7 @@ declare(strict_types=1);
  * @since     0.2.9
  * @license   https://opensource.org/licenses/mit-license.php MIT License
  */
+
 namespace App\Controller;
 
 use Cake\Controller\Controller;
@@ -30,7 +32,7 @@ class AppController extends Controller
 {
     /**
      * Initialization hook method.
-     *
+     *¡
      * Use this method to add common initialization code like loading components.
      *
      * e.g. `$this->loadComponent('FormProtection');`

@@ -104,6 +104,8 @@ class Installer
         }
     }
 
+
+
     /**
      * Set globally writable permissions on the "tmp" and "logs" directory.
      *
